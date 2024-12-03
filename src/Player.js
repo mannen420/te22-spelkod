@@ -7,20 +7,21 @@ export default class Player extends GameObject {
     this.grounded = false
 
     this.image = new Image()
-    this.image.src = "./src/assets/AnimationSheet_Character.png"
+    this.image.src = "./src/assets/gongus.png"
 
-    this.frameWidth = 32
-    this.frameHeight = 33
+    this.frameWidth = 129
+    this.frameHeight = 129
     this.frameX = 0
     this.frameY = 0
     this.maxFrames = 7
     this.timer = 0
-    this.fps = 4
+    this.fps = 8
     this.interval = 1000 / this.fps
 
     this.speedX = 0
     this.speedY = 0
     this.maxSpeedX = 0.1
+    this.maxSpeedY = 0.1
     this.jumpSpeed = 20
     this.color = "255, 0, 0"
   }
@@ -47,36 +48,32 @@ export default class Player extends GameObject {
     }
 
     if (this.game.input.keys.has("ArrowUp") && this.grounded) {
-      this.speedY = -this.jumpSpeed
-      this.grounded = false
+      this.speedY -= this.maxSpeedY
     }
 
-    if (this.grounded) {
-      this.speedY = 0
-    } else {
-      this.speedY += 1
-    }
+    // if (this.grounded) {
+    //   this.speedY = 0
+    // } else {
+    //   this.speedY += 1
+    // }
 
     this.y += this.speedY
     this.x += this.speedX
 
-    if (this.speedX > 1 && this.speedX < 7) {
-      this.frameY = 2
-      this.maxFrames = 4
-    } else if (this.speedX > 7) {
-      this.frameY = 3
-      this.maxFrames = 8
-    }else {
+    if (this.speedX != 0) {
       this.frameY = 0
-      this.maxFrames = 2
+      this.maxFrames = 4
+    }else{
+      this.frameY = 0
+      this.maxFrames = 1
     }
 
-    // Simulate ground plane
-    if (this.y > 320) {
-      this.y = 320
-      this.speedY = 0
-      this.grounded = true
-    }
+    // // Simulate ground plane
+    // if (this.y > 320) {
+    //   this.y = 320
+    //   this.speedY = 0
+    //   this.grounded = true
+    // }
 
     if (this.timer > this.interval) {
       this.frameX++
