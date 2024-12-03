@@ -19,7 +19,9 @@ export default class Player extends GameObject {
     this.interval = 1000 / this.fps
 
     this.speedX = 0
+    this.x = 831
     this.speedY = 0
+    this.y = 411
     this.maxSpeedX = 0.1
     this.maxSpeedY = 0.1
     this.jumpSpeed = 20
@@ -47,10 +49,19 @@ export default class Player extends GameObject {
       this.speedX = 0
     }
 
-    if (this.game.input.keys.has("ArrowUp") && this.grounded) {
+    if (this.game.input.keys.has("ArrowUp")) {
       this.speedY -= this.maxSpeedY
     }
+    if (this.game.input.keys.has("ArrowDown")) {
+      this.speedY += this.maxSpeedY
+    }
 
+    if (
+      !this.game.input.keys.has("ArrowUp") &&
+      !this.game.input.keys.has("ArrowDown")
+    ) {
+      this.speedY = 0
+    }
     // if (this.grounded) {
     //   this.speedY = 0
     // } else {
