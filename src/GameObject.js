@@ -16,6 +16,7 @@ export default class GameObject {
 
     update(deltaTime){
         this.x += this.speed
+        
 
     }
 

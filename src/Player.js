@@ -24,78 +24,76 @@ export default class Player extends GameObject {
     this.y = 411
     this.maxSpeedX = 0.1
     this.maxSpeedY = 0.1
-    this.jumpSpeed = 20
     this.color = "255, 0, 0"
   }
 
   update(deltaTime) {
-    if (this.game.input.keys.has("ArrowLeft")) {
-      console.log("pil vänster")
-      this.speedX -= this.maxSpeedX
-    }
-    if (this.game.input.keys.has("ArrowRight")) {
-      this.speedX += this.maxSpeedX
-    }
-    if (
-      this.game.input.keys.has("ArrowRight") &&
-      this.game.input.keys.has("ArrowLeft")
-    ) {
-      this.speedX = 0
-    }
-    if (
-      !this.game.input.keys.has("ArrowRight") &&
-      !this.game.input.keys.has("ArrowLeft")
-    ) {
-      this.speedX = 0
-    }
+  //   if (this.game.input.keys.has("ArrowLeft")) {
+  //     this.speedX -= this.maxSpeedX
+  //   }
+  //   if (this.game.input.keys.has("ArrowRight")) {
+  //     this.speedX += this.maxSpeedX
+  //   }
+  //   if (
+  //     this.game.input.keys.has("ArrowRight") &&
+  //     this.game.input.keys.has("ArrowLeft")
+  //   ) {
+  //     this.speedX = 0
+  //   }
+  //   if (
+  //     !this.game.input.keys.has("ArrowRight") &&
+  //     !this.game.input.keys.has("ArrowLeft")
+  //   ) {
+  //     this.speedX = 0
+  //   }
 
-    if (this.game.input.keys.has("ArrowUp")) {
-      this.speedY -= this.maxSpeedY
-    }
-    if (this.game.input.keys.has("ArrowDown")) {
-      this.speedY += this.maxSpeedY
-    }
+  //   if (this.game.input.keys.has("ArrowUp")) {
+  //     this.speedY -= this.maxSpeedY
+  //   }
+  //   if (this.game.input.keys.has("ArrowDown")) {
+  //     this.speedY += this.maxSpeedY
+  //   }
 
-    if (
-      !this.game.input.keys.has("ArrowUp") &&
-      !this.game.input.keys.has("ArrowDown")
-    ) {
-      this.speedY = 0
-    }
-    // if (this.grounded) {
-    //   this.speedY = 0
-    // } else {
-    //   this.speedY += 1
-    // }
+  //   if (
+  //     !this.game.input.keys.has("ArrowUp") &&
+  //     !this.game.input.keys.has("ArrowDown")
+  //   ) {
+  //     this.speedY = 0
+  //   }
+  //   // if (this.grounded) {
+  //   //   this.speedY = 0
+  //   // } else {
+  //   //   this.speedY += 1
+  //   // }
 
-    this.y += this.speedY
-    this.x += this.speedX
+  //   this.y += this.speedY
+  //   this.x += this.speedX
 
-    if (this.speedX != 0) {
-      this.frameY = 0
-      this.maxFrames = 4
-    }else{
-      this.frameY = 0
-      this.maxFrames = 1
-    }
+  //   if (this.speedX != 0) {
+  //     this.frameY = 0
+  //     this.maxFrames = 4
+  //   }else{
+  //     this.frameY = 0
+  //     this.maxFrames = 1
+  //   }
 
-    // // Simulate ground plane
-    // if (this.y > 320) {
-    //   this.y = 320
-    //   this.speedY = 0
-    //   this.grounded = true
-    // }
+  //   // // Simulate ground plane
+  //   // if (this.y > 320) {
+  //   //   this.y = 320
+  //   //   this.speedY = 0
+  //   //   this.grounded = true
+  //   // }
 
-    if (this.timer > this.interval) {
-      this.frameX++
-      this.timer = 0
-    } else {
-      this.timer += deltaTime
-    }
+  //   if (this.timer > this.interval) {
+  //     this.frameX++
+  //     this.timer = 0
+  //   } else {
+  //     this.timer += deltaTime
+  //   }
 
-    if (this.frameX >= this.maxFrames) {
-      this.frameX = 0
-    }
+  //   if (this.frameX >= this.maxFrames) {
+  //     this.frameX = 0
+  //   }
   }
 
   draw(ctx) {

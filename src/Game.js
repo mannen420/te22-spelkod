@@ -1,7 +1,8 @@
-import Ball from "./Ball"
+
 import GameObject from "./GameObject"
 import Input from "./Input"
 import Player from "./Player"
+import enemy from "./enemy.js"
 import Background from './Background.js'
 
 export default class Game { // skapar klassen
@@ -9,10 +10,11 @@ export default class Game { // skapar klassen
     this.width = width
     this.height = height
     this.input = new Input(this)
-    this.player = new Player(0, 0, 50, 50, "green", this)
+    this.player = new Player(0, 0, 25, 25, "green", this)
+    this.enemy = new enemy(0, 0, 30, 30, "green", this)
     console.log("Ny instans av game ", this.width)
     this.box = new GameObject(40, 100, 200, 200, "purple")
-    this.ball = new Ball(100, 200, 100, 100, "red")
+
 
     this.background = new Background(this)
     this.speed = 1
@@ -21,19 +23,22 @@ export default class Game { // skapar klassen
 
   update(deltaTime) {
     this.box.update(deltaTime)
-    this.ball.update(deltaTime)
+   
     this.player.update(deltaTime)
     this.background.update(deltaTime)
+    this.enemy.update(deltaTime)
   }
 
   draw(ctx) {
     this.box.draw(ctx)
-    this.ball.draw(ctx)
-
+    
+    this.background.backgroundLayers[0].draw(ctx)
     this.background.draw(ctx)
 
     this.player.draw(ctx)
-    this.background.backgroundLayers[3].draw(ctx)
+    this.enemy.draw(ctx)
+  
+    
   }
   }
  

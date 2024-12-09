@@ -5,21 +5,12 @@ export default class Background {
     this.game = game
     this.width = 1920
     this.height = 1080
-
-    this.fg = new Image()
-    this.fg.src = "./src/assets/foreground_layer.png"
-    this.gl = new Image()
-    this.gl.src = "./src/assets/ground_layer.png"
-    this.ml = new Image()
-    this.ml.src = "./src/assets/middle_layer.png"
+    
     this.sl = new Image()
-    this.sl.src = "./src/assets/sky_layer.png"
+    this.sl.src = "./src/assets/floor_128px.png"
 
     this.backgroundLayers = [
-      new Layer(this.game, this.width, this.height, 0.1, this.sl),
-      new Layer(this.game, this.width, this.height, 0.2, this.ml),
-      new Layer(this.game, this.width, this.height, 0.5, this.gl),
-      new Layer(this.game, this.width, this.height, 1, this.fg)
+      new Layer(this.game, this.width, this.height, 0.0, this.sl)
     ]
   }
 
