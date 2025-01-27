@@ -21,7 +21,7 @@ export default class enemy extends GameObject {
     this.fps = 8
     this.interval = 1000 / this.fps
 
-    this.x = 0
+    this.x = Math. random() 
     this.y = 0
     this.Speed = 3
     this.maxSpeed = 10
@@ -55,18 +55,25 @@ this.maxFrames = 7
         this.y -= this.Speed
     }
 
-      if (this.game.input.keys.has("ArrowLeft")) {
+      if (this.game.input.keys.has("a")) {
         this.x += this.maxSpeed
       }
-      if (this.game.input.keys.has("ArrowRight")) {
+      if (this.game.input.keys.has("d")) {
         this.x -= this.maxSpeed
       }
-      if (this.game.input.keys.has("ArrowUp")) {
+      if (this.game.input.keys.has("w")) {
         this.y += this.maxSpeed
       }
-      if (this.game.input.keys.has("ArrowDown")) {
+      if (this.game.input.keys.has("s")) {
         this.y -= this.maxSpeed
       }
+
+    if (this.x + 32 > 831 && this.y + 32 > 411 && this.x < 831 + 32 && this.y < 411 + 32){
+      this.framex = 0
+      this.frameY = 8
+      this.maxFrames = 8
+      
+    }
      
 }
 

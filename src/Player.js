@@ -13,88 +13,74 @@ export default class Player extends GameObject {
     this.frameHeight = 129
     this.frameX = 0
     this.frameY = 0
-    this.maxFrames = 7
+    this.maxFrames = 3
     this.timer = 0
     this.fps = 8
     this.interval = 1000 / this.fps
 
-    this.speedX = 0
+    this.speed = 0
     this.x = 831
-    this.speedY = 0
     this.y = 411
-    this.maxSpeedX = 0.1
-    this.maxSpeedY = 0.1
+    this.maxSpeed = 0.1
     this.color = "255, 0, 0"
-  }
+}
 
   update(deltaTime) {
-  //   if (this.game.input.keys.has("ArrowLeft")) {
-  //     this.speedX -= this.maxSpeedX
-  //   }
-  //   if (this.game.input.keys.has("ArrowRight")) {
-  //     this.speedX += this.maxSpeedX
-  //   }
-  //   if (
-  //     this.game.input.keys.has("ArrowRight") &&
-  //     this.game.input.keys.has("ArrowLeft")
-  //   ) {
-  //     this.speedX = 0
-  //   }
-  //   if (
-  //     !this.game.input.keys.has("ArrowRight") &&
-  //     !this.game.input.keys.has("ArrowLeft")
-  //   ) {
-  //     this.speedX = 0
-  //   }
+    if (this.game.input.keys.has("a")) {
+      this.speed += this.maxSpeed
+    }
+     if (this.game.input.keys.has("d")) {
+      this.speed += this.maxSpeed
+     }
 
-  //   if (this.game.input.keys.has("ArrowUp")) {
-  //     this.speedY -= this.maxSpeedY
-  //   }
-  //   if (this.game.input.keys.has("ArrowDown")) {
-  //     this.speedY += this.maxSpeedY
-  //   }
+    if (this.game.input.keys.has("w")) {
+       this.speed -= this.maxSpeed
+     }
+     if (this.game.input.keys.has("s")) {
+       this.speed += this.maxSpeed
+     }
 
-  //   if (
-  //     !this.game.input.keys.has("ArrowUp") &&
-  //     !this.game.input.keys.has("ArrowDown")
-  //   ) {
-  //     this.speedY = 0
-  //   }
-  //   // if (this.grounded) {
-  //   //   this.speedY = 0
-  //   // } else {
-  //   //   this.speedY += 1
-  //   // }
+     if (
+       !this.game.input.keys.has("w") &&
+       !this.game.input.keys.has("s") &&
+       !this.game.input.keys.has("a") &&
+       !this.game.input.keys.has("d")
+     ) {
+      this.speed = 0
+     }
+ 
 
-  //   this.y += this.speedY
-  //   this.x += this.speedX
+    
 
-  //   if (this.speedX != 0) {
-  //     this.frameY = 0
-  //     this.maxFrames = 4
-  //   }else{
-  //     this.frameY = 0
-  //     this.maxFrames = 1
-  //   }
+    if (this.speed != 0) {
+       this.frameY = 0
+       this.maxFrames = 4
+     }else{
+       this.frameY = 0
+       this.maxFrames = 0
+     }
 
-  //   // // Simulate ground plane
-  //   // if (this.y > 320) {
-  //   //   this.y = 320
-  //   //   this.speedY = 0
-  //   //   this.grounded = true
-  //   // }
+     if (this.speed != 0) {
+      this.frameY = 0
+      this.maxFrames = 4
+    }else{
+      this.frameY = 0
+      this.maxFrames = 0
+    }
 
-  //   if (this.timer > this.interval) {
-  //     this.frameX++
-  //     this.timer = 0
-  //   } else {
-  //     this.timer += deltaTime
-  //   }
+  
 
-  //   if (this.frameX >= this.maxFrames) {
-  //     this.frameX = 0
-  //   }
-  }
+    if (this.timer > this.interval) {
+       this.frameX++
+       this.timer = 0
+     } else {
+       this.timer += deltaTime
+     }
+
+     if (this.frameX >= this.maxFrames) {
+       this.frameX = 0
+     }
+}
 
   draw(ctx) {
     // ctx.drawImage(this.image, this.x, this.y, this.width, this.height)
@@ -108,6 +94,6 @@ export default class Player extends GameObject {
       this.y,
       this.width * 3,
       this.height * 3,
-    ) // source x, y, w, h, destination x, y, w, h
-  }
+) // source x, y, w, h, destination x, y, w, h
+}
 }

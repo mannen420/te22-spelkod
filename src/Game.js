@@ -10,7 +10,7 @@ export default class Game { // skapar klassen
     this.width = width
     this.height = height
     this.input = new Input(this)
-    this.player = new Player(0, 0, 25, 25, "green", this)
+    this.player = new Player(0, 0, 35, 35, "green", this)
     this.enemy = new enemy(0, 0, 30, 30, "green", this)
     console.log("Ny instans av game ", this.width)
     this.box = new GameObject(40, 100, 200, 200, "purple")

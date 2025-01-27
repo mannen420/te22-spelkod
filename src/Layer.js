@@ -32,35 +32,35 @@ export default class Layer {
         this.y += this.game.speed * this.speed
       }
 
-      if (this.game.input.keys.has("ArrowLeft")) {
+      if (this.game.input.keys.has("a")) {
         this.speedX = +this.maxSpeed
       }
-      if (this.game.input.keys.has("ArrowRight")) {
+      if (this.game.input.keys.has("d")) {
         this.speedX = -this.maxSpeed
       }
       if (
-        this.game.input.keys.has("ArrowRight") &&
-        this.game.input.keys.has("ArrowLeft")
+        this.game.input.keys.has("d") &&
+        this.game.input.keys.has("a")
       ) {
         this.speedX = 0
       }
       if (
-        !this.game.input.keys.has("ArrowRight") &&
-        !this.game.input.keys.has("ArrowLeft")
+        !this.game.input.keys.has("d") &&
+        !this.game.input.keys.has("a")
       ) {
         this.speedX = 0
       }
   
-      if (this.game.input.keys.has("ArrowUp")) {
+      if (this.game.input.keys.has("w")) {
         this.speedY = +this.maxSpeed
       }
-      if (this.game.input.keys.has("ArrowDown")) {
+      if (this.game.input.keys.has("s")) {
         this.speedY = -this.maxSpeed
       }
   
       if (
-        !this.game.input.keys.has("ArrowUp") &&
-        !this.game.input.keys.has("ArrowDown")
+        !this.game.input.keys.has("w") &&
+        !this.game.input.keys.has("s")
       ) {
         this.speedY = 0
       }
