@@ -26,6 +26,7 @@ export default class enemy extends GameObject {
     this.Speed = 3
     this.maxSpeed = 10
     this.color = "255, 0, 0"
+   
   }
   update(deltaTime) {
 
@@ -72,7 +73,7 @@ this.maxFrames = 7
       this.framex = 0
       this.frameY = 8
       this.maxFrames = 8
-      
+
     }
      
 }

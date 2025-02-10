@@ -1,4 +1,6 @@
 import GameObject from "./GameObject"
+import touching from "./enemy"
+import enemy from "./enemy"
 
 export default class Player extends GameObject {
   constructor(x, y, width, height, color, game) {
@@ -23,6 +25,8 @@ export default class Player extends GameObject {
     this.y = 411
     this.maxSpeed = 0.1
     this.color = "255, 0, 0"
+    this.HP = 100
+    
 }
 
   update(deltaTime) {
@@ -80,6 +84,10 @@ export default class Player extends GameObject {
      if (this.frameX >= this.maxFrames) {
        this.frameX = 0
      }
+     
+    
+
+     
 }
 
   draw(ctx) {
