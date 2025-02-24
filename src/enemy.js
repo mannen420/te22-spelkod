@@ -1,5 +1,5 @@
 import GameObject from "./GameObject"
-
+import enemyimage from "./assets/AnimationSheet_Character.png"
 
 
 
@@ -10,7 +10,7 @@ export default class enemy extends GameObject {
 
 
     this.image = new Image()
-    this.image.src = "./src/assets/AnimationSheet_Character.png"
+    this.image.src = enemyimage
 
     this.frameWidth = 32
     this.frameHeight = 32

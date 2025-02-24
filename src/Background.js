@@ -1,4 +1,5 @@
 import Layer from './Layer'
+import backgroundimage from "./assets/floor_128px.png"
 
 export default class Background {
   constructor(game) {
@@ -7,7 +8,7 @@ export default class Background {
     this.height = 1080
     
     this.sl = new Image()
-    this.sl.src = "./src/assets/floor_128px.png"
+    this.sl.src = backgroundimage
 
     this.backgroundLayers = [
       new Layer(this.game, this.width, this.height, 0.0, this.sl)

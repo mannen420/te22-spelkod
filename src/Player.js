@@ -1,6 +1,5 @@
 import GameObject from "./GameObject"
-import touching from "./enemy"
-import enemy from "./enemy"
+import playerimage from "./assets/gongus.png"
 
 export default class Player extends GameObject {
   constructor(x, y, width, height, color, game) {
@@ -9,7 +8,7 @@ export default class Player extends GameObject {
     this.grounded = false
 
     this.image = new Image()
-    this.image.src = "./src/assets/gongus.png"
+    this.image.src = playerimage
 
     this.frameWidth = 129
     this.frameHeight = 129
